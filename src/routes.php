@@ -6,11 +6,12 @@ use Slim\Http\Response;
 // Routes
 $app->get('/', function (Request $request, Response $response, array $args) use ($app) {
     $ch = curl_init();
-    $last_page = null;
-    $page = 1;
-
+    
     $veiculos = array("carro", "moto", "caminhao");
     foreach($veiculos as $cada_veiculo){
+        $last_page = null;
+        $page = 1;
+        
         do{
 
             $db = ConexaoPDO::getConexaoPDO($app);
