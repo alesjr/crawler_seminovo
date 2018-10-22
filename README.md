@@ -1,27 +1,20 @@
-# Slim Framework 3 Skeleton Application
+# Crawler Seminovo
+## Install 
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Execute o comando composer install
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+## Expecificação:
 
-## Install the Application
+PHP 7.2 (módulos curl e mysql)
+Mysql 5.7
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+## Instalar a base de dados:
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
-
-To run the application in development, you can run these commands 
-
-	cd [my-app-name]
-	php composer.phar start
-
-Run this command in the application directory to run the test suite
-
-	php composer.phar test
-
-That's it! Now go build something cool.
+Execute o arquivo tabela.sql
+Alterar o arquivo na pasta src/settings.php, os seguintes valores (conforme for configurado):
+	"db" => [
+            "host"   => "host", //lugar onde a base de dados está
+            "dbname" => "seminovos", //nome do banco
+            "user"   => "root", //usuário do banco
+            "pass"   => "minha senha" //senha do banco de dados
+        ],
