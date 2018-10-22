@@ -6,6 +6,7 @@ use Slim\Http\Response;
 // Routes
 $app->get('/', function (Request $request, Response $response, array $args) use ($app) {
     $ch = curl_init();
+    $db = ConexaoPDO::getConexaoPDO($app);
     
     $veiculos = array("carro", "moto", "caminhao");
     foreach($veiculos as $cada_veiculo){
@@ -13,9 +14,6 @@ $app->get('/', function (Request $request, Response $response, array $args) use 
         $page = 1;
         
         do{
-
-            $db = ConexaoPDO::getConexaoPDO($app);
-
             curl_setopt($ch, CURLOPT_URL, "https://www.seminovosbh.com.br/resultadobusca/index/veiculo/{$cada_veiculo}/valor2/2000000/ano1/1930/ano2/2019/usuario/todos/pagina/{$page}");
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
